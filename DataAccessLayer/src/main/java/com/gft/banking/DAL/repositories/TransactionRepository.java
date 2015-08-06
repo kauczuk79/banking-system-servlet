@@ -38,4 +38,14 @@ public class TransactionRepository {
         };
         return parser.doQuery(TransactionSQLQueries.getAllTransactionsQuery());
     }
+
+    public final List<TransactionEntity> getTransactionsByAccountId(final int accountId) {
+        final DbResponseParser<List<TransactionEntity>> parser = new DbResponseParser<List<TransactionEntity>>() {
+            @Override
+            public List<TransactionEntity> parse(ResultSet resultSet) throws SQLException {
+                return parseList(resultSet);
+            }
+        };
+        return parser.doQuery(TransactionSQLQueries.getTransactionsByAccountId(accountId));
+    }
 }

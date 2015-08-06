@@ -1,14 +1,16 @@
-package com.gft.banking.dal.entities;
+package com.gft.banking.dal.dto;
 
 /**
- * Created by rowesolowski on 2015-08-05.
+ * Created by rowesolowski on 2015-08-06.
  */
-public class AccountEntity {
-    private final int accountId;
-    private final int clientId;
-    private final String accountNumber;
+public class AccountServiceDTO {
+    private int accountId;
+    private int clientId;
+    private String accountNumber;
 
-    public AccountEntity(int accountId, int clientId, String accountNumber) {
+    public AccountServiceDTO() {}
+
+    public AccountServiceDTO(int accountId, int clientId, String accountNumber) {
         this.accountId = accountId;
         this.clientId = clientId;
         this.accountNumber = accountNumber;
@@ -18,12 +20,33 @@ public class AccountEntity {
         return accountId;
     }
 
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
+    }
+
     public int getClientId() {
         return clientId;
     }
 
+    public void setClientId(int clientId) {
+        this.clientId = clientId;
+    }
+
     public String getAccountNumber() {
         return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "AccountServiceDTO{" +
+                "accountId=" + accountId +
+                ", clientId=" + clientId +
+                ", accountNumber='" + accountNumber + '\'' +
+                '}';
     }
 
     @Override
@@ -31,7 +54,7 @@ public class AccountEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        AccountEntity that = (AccountEntity) o;
+        AccountServiceDTO that = (AccountServiceDTO) o;
 
         if (accountId != that.accountId) return false;
         if (clientId != that.clientId) return false;
@@ -45,14 +68,5 @@ public class AccountEntity {
         result = 31 * result + clientId;
         result = 31 * result + (accountNumber != null ? accountNumber.hashCode() : 0);
         return result;
-    }
-
-    @Override
-    public String toString() {
-        return "AccountEntity{" +
-                "accountId=" + accountId +
-                ", clientId=" + clientId +
-                ", accountNumber='" + accountNumber + '\'' +
-                '}';
     }
 }

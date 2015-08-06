@@ -14,4 +14,10 @@ public class TransactionSQLQueries {
     public static String getAllTransactionsQuery() {
         return "SELECT * FROM Transactions";
     }
+
+    public static String getTransactionsByAccountId(int accountId) {
+        final StringBuilder sb = new StringBuilder("SELECT * FROM Transactions WHERE fromAccount = ");
+        sb.append(accountId).append(" OR toAccount = ").append(accountId).append(";");
+        return sb.toString();
+    }
 }

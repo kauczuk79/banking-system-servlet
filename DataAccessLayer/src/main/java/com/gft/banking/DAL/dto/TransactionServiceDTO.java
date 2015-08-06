@@ -1,18 +1,21 @@
-package com.gft.banking.dal.entities;
+package com.gft.banking.dal.dto;
 
 import java.sql.Date;
 
 /**
- * Created by rowesolowski on 2015-08-05.
+ * Created by rowesolowski on 2015-08-06.
  */
-public class TransactionEntity {
-    private final int transactionId;
-    private final int fromAccount;
-    private final int toAccount;
-    private final Date date;
-    private final double amount;
+public class TransactionServiceDTO {
+    private int transactionId;
+    private int fromAccount;
+    private int toAccount;
+    private Date date;
+    private double amount;
 
-    public TransactionEntity(int transactionId, int fromAccount, int toAccount, Date date, double amount) {
+    public TransactionServiceDTO() {
+    }
+
+    public TransactionServiceDTO(int transactionId, int fromAccount, int toAccount, Date date, double amount) {
         this.transactionId = transactionId;
         this.fromAccount = fromAccount;
         this.toAccount = toAccount;
@@ -24,29 +27,48 @@ public class TransactionEntity {
         return transactionId;
     }
 
+    public void setTransactionId(int transactionId) {
+        this.transactionId = transactionId;
+    }
+
     public int getFromAccount() {
         return fromAccount;
+    }
+
+    public void setFromAccount(int fromAccount) {
+        this.fromAccount = fromAccount;
     }
 
     public int getToAccount() {
         return toAccount;
     }
 
+    public void setToAccount(int toAccount) {
+        this.toAccount = toAccount;
+    }
+
     public Date getDate() {
         return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public double getAmount() {
         return amount;
     }
 
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        TransactionEntity that = (TransactionEntity) o;
+        TransactionServiceDTO that = (TransactionServiceDTO) o;
 
         if (transactionId != that.transactionId) return false;
         if (fromAccount != that.fromAccount) return false;
@@ -71,11 +93,11 @@ public class TransactionEntity {
 
     @Override
     public String toString() {
-        return "TransactionEntity{" +
+        return "TransactionServiceDTO{" +
                 "transactionId=" + transactionId +
                 ", fromAccount=" + fromAccount +
                 ", toAccount=" + toAccount +
-                ", date=" + date.toLocalDate().toString() +
+                ", date=" + date +
                 ", amount=" + amount +
                 '}';
     }
