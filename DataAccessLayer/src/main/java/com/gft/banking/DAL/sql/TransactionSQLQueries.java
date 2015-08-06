@@ -16,8 +16,8 @@ public class TransactionSQLQueries {
     }
 
     public static String getTransactionsByAccountId(int accountId) {
-        final StringBuilder sb = new StringBuilder("SELECT * FROM Transactions WHERE fromAccount = ");
-        sb.append(accountId).append(" OR toAccount = ").append(accountId).append(";");
+        final StringBuilder sb = new StringBuilder("SELECT * FROM Transactions WHERE (toAccount = ");
+        sb.append(accountId).append(" AND amount>0) OR (fromAccount = ").append(accountId).append(" AND amount<=0);");
         return sb.toString();
     }
 }

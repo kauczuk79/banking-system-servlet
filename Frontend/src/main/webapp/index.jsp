@@ -11,6 +11,11 @@
     <title></title>
   </head>
   <body>
-
+    <form method="post" action="<%=request.getContextPath()%>/login" accept-charset="UTF-8">
+      First name <input type="text" name="FirstName" value="Robert"><br>
+      Last name <input type="text" name="LastName" value="Wesolowski"><br>
+      Secret password ("123456") <input type="text" name="Password" value="123456"><br>
+      <input type="submit" value="Login">
+    </form>
   </body>
 </html>
