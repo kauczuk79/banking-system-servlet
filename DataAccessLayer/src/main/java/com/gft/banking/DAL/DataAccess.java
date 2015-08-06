@@ -1,4 +1,4 @@
-package com.gft.banking.DAL;
+package com.gft.banking.dal;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;

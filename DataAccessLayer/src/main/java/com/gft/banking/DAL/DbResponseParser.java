@@ -1,4 +1,4 @@
-package com.gft.banking.DAL;
+package com.gft.banking.dal;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,8 +1,8 @@
-package com.gft.banking.DAL.repositories;
+package com.gft.banking.dal.repositories;
 
-import com.gft.banking.DAL.DbResponseParser;
-import com.gft.banking.DAL.entities.TransactionEntity;
-import com.gft.banking.DAL.sql.TransactionSQLQueries;
+import com.gft.banking.dal.DbResponseParser;
+import com.gft.banking.dal.entities.TransactionEntity;
+import com.gft.banking.dal.sql.TransactionSQLQueries;
 
 import java.sql.Date;
 import java.sql.ResultSet;

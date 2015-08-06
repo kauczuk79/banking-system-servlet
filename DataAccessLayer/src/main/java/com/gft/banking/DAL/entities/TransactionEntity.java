@@ -1,4 +1,4 @@
-package com.gft.banking.DAL.entities;
+package com.gft.banking.dal.entities;
 
 import java.sql.Date;
 

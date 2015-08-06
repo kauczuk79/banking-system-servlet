@@ -44,7 +44,7 @@
 
         <dependency>
             <groupId>com.gft</groupId>
-            <artifactId>DataAccessLayer</artifactId>
+            <artifactId>BusinessLogic</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

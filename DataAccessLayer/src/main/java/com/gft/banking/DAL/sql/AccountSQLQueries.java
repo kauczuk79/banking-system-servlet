@@ -1,4 +1,4 @@
-package com.gft.banking.DAL.sql;
+package com.gft.banking.dal.sql;
 
 /**
  * Created by rowesolowski on 2015-08-05.
