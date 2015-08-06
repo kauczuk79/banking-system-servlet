@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class TransactionRepository {
 
-    private List<TransactionEntity> parseList(final ResultSet resultSet) throws SQLException {
+    protected static List<TransactionEntity> parseList(final ResultSet resultSet) throws SQLException {
         final List<TransactionEntity> queryResult = new ArrayList<>();
         while(resultSet.next()) {
             final int transactionId = resultSet.getInt(TransactionSQLQueries.TRANSACTION_ID_COLUMN);

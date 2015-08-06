@@ -34,4 +34,22 @@ public class AccountEntity {
                 ", accountNumber='" + accountNumber + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AccountEntity that = (AccountEntity) o;
+        if (accountId != that.accountId) return false;
+        if (clientId != that.clientId) return false;
+        return accountNumber.equals(that.accountNumber);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = accountId;
+        result = 31 * result + clientId;
+        result = 31 * result + accountNumber.hashCode();
+        return result;
+    }
 }

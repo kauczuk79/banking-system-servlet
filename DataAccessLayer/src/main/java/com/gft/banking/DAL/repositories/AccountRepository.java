@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class AccountRepository {
 
-    private List<AccountEntity> parseList(final ResultSet resultSet) throws SQLException {
+    protected static List<AccountEntity> parseList(final ResultSet resultSet) throws SQLException {
         final List<AccountEntity> queryResult = new ArrayList<>();
         while (resultSet.next()) {
             final int accountId = resultSet.getInt(AccountSQLQueries.ACCOUNT_ID_COLUMN);

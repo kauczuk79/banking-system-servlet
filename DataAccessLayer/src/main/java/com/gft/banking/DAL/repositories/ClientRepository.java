@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class ClientRepository {
 
-    private List<ClientEntity> parseList(final ResultSet resultSet) throws SQLException{
+    protected static List<ClientEntity> parseList(final ResultSet resultSet) throws SQLException{
         final List<ClientEntity> queryResult = new ArrayList<>();
         while (resultSet.next()) {
             final int clientId = resultSet.getInt(ClientSQLQueries.CLIENT_ID_COLUMN);
