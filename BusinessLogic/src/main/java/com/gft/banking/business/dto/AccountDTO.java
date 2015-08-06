@@ -53,6 +53,30 @@ public class AccountDTO {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        AccountDTO that = (AccountDTO) o;
+
+        if (accountId != that.accountId) return false;
+        if (clientId != that.clientId) return false;
+        if (accountNumber != null ? !accountNumber.equals(that.accountNumber) : that.accountNumber != null)
+            return false;
+        return !(transactions != null ? !transactions.equals(that.transactions) : that.transactions != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = accountId;
+        result = 31 * result + clientId;
+        result = 31 * result + (accountNumber != null ? accountNumber.hashCode() : 0);
+        result = 31 * result + (transactions != null ? transactions.hashCode() : 0);
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "AccountDTO{" +
                 "accountId=" + accountId +

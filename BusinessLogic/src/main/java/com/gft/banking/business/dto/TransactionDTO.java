@@ -64,6 +64,34 @@ public class TransactionDTO {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        TransactionDTO that = (TransactionDTO) o;
+
+        if (transactionId != that.transactionId) return false;
+        if (fromAccount != that.fromAccount) return false;
+        if (toAccount != that.toAccount) return false;
+        if (Double.compare(that.amount, amount) != 0) return false;
+        return !(date != null ? !date.equals(that.date) : that.date != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = transactionId;
+        result = 31 * result + fromAccount;
+        result = 31 * result + toAccount;
+        result = 31 * result + (date != null ? date.hashCode() : 0);
+        temp = Double.doubleToLongBits(amount);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "TransactionDTO{" +
                 "transactionId=" + transactionId +

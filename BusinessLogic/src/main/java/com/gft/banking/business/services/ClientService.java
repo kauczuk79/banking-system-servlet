@@ -22,9 +22,7 @@ public class ClientService {
             final ClientServiceDTO clientServiceDTO = entityConverter.convert(entity);
             final ClientDTO clientDTO = serviceConverter.convert(clientServiceDTO);
             return clientDTO;
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        } catch (InvocationTargetException | IllegalAccessException e) {
             e.printStackTrace();
         }
         return null;

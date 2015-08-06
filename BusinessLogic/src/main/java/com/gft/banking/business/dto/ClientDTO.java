@@ -56,6 +56,29 @@ public class ClientDTO {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ClientDTO clientDTO = (ClientDTO) o;
+
+        if (clientId != clientDTO.clientId) return false;
+        if (firstName != null ? !firstName.equals(clientDTO.firstName) : clientDTO.firstName != null) return false;
+        if (lastName != null ? !lastName.equals(clientDTO.lastName) : clientDTO.lastName != null) return false;
+        return !(accounts != null ? !accounts.equals(clientDTO.accounts) : clientDTO.accounts != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = clientId;
+        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = 31 * result + (accounts != null ? accounts.hashCode() : 0);
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "ClientDTO{" +
                 "clientId=" + clientId +

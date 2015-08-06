@@ -20,10 +20,10 @@ import java.util.List;
 public class AccountServiceConverter implements IServiceConverter<AccountServiceDTO, AccountDTO> {
 
     private List<TransactionServiceDTO> convertAccountEntityListToTransactionServiceDTOList(List<TransactionEntity> transactionEntityList) {
-        TransactionEntityConverter transactionEntityConverter = new TransactionEntityConverter();
-        List<TransactionServiceDTO> result = new ArrayList<>();
+        final TransactionEntityConverter transactionEntityConverter = new TransactionEntityConverter();
+        final List<TransactionServiceDTO> result = new ArrayList<>();
         CollectionUtils.collect(transactionEntityList, (entity) -> {
-            TransactionEntity en = (TransactionEntity) entity;
+            final TransactionEntity en = (TransactionEntity) entity;
             try {
                 return transactionEntityConverter.convert(en);
             } catch (IllegalAccessException | InvocationTargetException e) {
@@ -35,10 +35,10 @@ public class AccountServiceConverter implements IServiceConverter<AccountService
     }
 
     private List<TransactionDTO> convertAccountServiceDTOListToTransactionDTOList(List<TransactionServiceDTO> transactionServiceDTOs) {
-        TransactionServiceConverter transactionServiceConverter = new TransactionServiceConverter();
-        List<TransactionDTO> result = new ArrayList<>();
+        final TransactionServiceConverter transactionServiceConverter = new TransactionServiceConverter();
+        final List<TransactionDTO> result = new ArrayList<>();
         CollectionUtils.collect(transactionServiceDTOs, (entity) -> {
-            TransactionServiceDTO en = (TransactionServiceDTO) entity;
+            final TransactionServiceDTO en = (TransactionServiceDTO) entity;
             try {
                 return transactionServiceConverter.convert(en);
             } catch (IllegalAccessException | InvocationTargetException e) {
