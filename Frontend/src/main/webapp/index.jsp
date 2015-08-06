@@ -11,6 +11,7 @@
     <title></title>
   </head>
   <body>
+  <h1>Login</h1>
     <form method="post" action="<%=request.getContextPath()%>/login" accept-charset="UTF-8">
       First name <input type="text" name="FirstName" value="Robert"><br>
       Last name <input type="text" name="LastName" value="Wesolowski"><br>

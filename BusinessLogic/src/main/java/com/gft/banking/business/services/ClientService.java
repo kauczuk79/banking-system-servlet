@@ -27,4 +27,13 @@ public class ClientService {
         }
         return null;
     }
+
+    public boolean createClient(final String firstName, final String lastName) {
+        final ClientRepository clientRepository = new ClientRepository();
+        AccountService accountService = new AccountService();
+        clientRepository.createUser(firstName, lastName);
+        int clientId = clientRepository.findClientIdByUsername(firstName, lastName);
+        accountService.createAccountForClient(clientId);
+        return true;
+    }
 }

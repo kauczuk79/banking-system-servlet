@@ -76,4 +76,19 @@ public class ClientRepository {
         LOGGER.error(query);
         return parser.doQuery(query);
     }
+
+    public boolean createUser(String firstName, String lastName) {
+        final int clientId = findClientIdByUsername(firstName, lastName);
+        if(clientId == -1) {
+            DbResponseParser<Boolean> parser = new DbResponseParser<Boolean>() {
+                @Override
+                public Boolean parse(ResultSet resultSet) throws SQLException {
+                    return true;
+                }
+            };
+            return parser.doQuery("INSERT INTO Clients (firstName, lastName) VALUES ('"+firstName+"','"+lastName+"');");
+        } else {
+            return false;
+        }
+    }
 }
